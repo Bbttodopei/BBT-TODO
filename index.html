@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estanquillo BBT TODO</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Encabezado con imagen de fondo */
+        header {
+            background-image: url('logo-fondo.jpg'); /* Imagen de fondo para el logo */
+            background-size: cover; /* Ajusta la imagen al tamaño del encabezado */
+            background-position: center; /* Centra la imagen */
+            color: white;
+            padding: 100px 20px; /* Aumentamos el padding para más espacio */
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejor legibilidad */
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        /* Menú de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Secciones */
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-size: 2.5em;
+            color: #ff8c42;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Texto de bienvenida centrado */
+        #inicio p {
+            text-align: center;
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Productos */
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .producto {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .producto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .producto img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .producto h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 10px 0;
+        }
+        .producto p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        /* Botón de WhatsApp */
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px);
+        }
+        .contacto-contenedor {
+            display: flex;
+            justify-content: center; /* Centra el botón horizontalmente */
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        footer a {
+            color: #ff8c42;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .horarios {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .horarios th, .horarios td {
+            padding: 15px;
+            text-align: center;
+        }
+        .horarios th {
+            background-color: #ff8c42;
+            color: white;
+            font-size: 1.2em;
+        }
+        .horarios td {
+            background-color: #ffffff;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .horarios tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        /* Diseño responsive */
+        @media (max-width: 768px) {
+            .producto {
+                width: 100%;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .horarios {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Estanquillo BBT TODO</h1>
+    </header>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio">
+        <h2>Bienvenidos</h2>
+        <p>Bienvenidos a BBT TODO, tu estanquillo de confianza para encontrar los mejores productos y promociones. Estamos ubicados en la Avenida Circunvalar Calle 13 #8-94. ¡Ven y visítanos!</p>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos">
+        <h2>Productos</h2>
+        <div class="productos">
+            <div class="producto">
+                <img src="ron.jpg" alt="Ron">
+                <h3>Ron</h3>
+                <p>Variedad de marcas y precios.</p>
+            </div>
+            <div class="producto">
+                <img src="aguardiente.jpg" alt="Aguardiente">
+                <h3>Aguardiente</h3>
+                <p>Las mejores marcas nacionales.</p>
+            </div>
+            <div class="producto">
+                <img src="whisky.jpg" alt="Whisky">
+                <h3>Whisky</h3>
+                <p>Importados y nacionales.</p>
+            </div>
+            <div class="producto">
+                <img src="vodka.jpg" alt="Vodka">
+                <h3>Vodka</h3>
+                <p>Marcas premium y estándar.</p>
+            </div>
+            <div class="producto">
+                <img src="cervezas.jpg" alt="Cervezas">
+                <h3>Cervezas</h3>
+                <p>Nacionales e importadas.</p>
+            </div>
+            <div class="producto">
+                <img src="tequila.jpg" alt="Tequila">
+                <h3>Tequila</h3>
+                <p>Marcas reconocidas.</p>
+            </div>
+            <div class="producto">
+                <img src="cocteles.jpg" alt="Cocteles en Lata">
+                <h3>Cocteles en Lata</h3>
+                <p>Four Loko y más.</p>
+            </div>
+            <div class="producto">
+                <img src="otros-licores.jpg" alt="Otros Licores">
+                <h3>Otros Licores</h3>
+                <p>Variedad de licores especiales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <div class="contacto-contenedor">
+            <a href="https://wa.me/573245519976?text=Hola,%20estoy%20interesado%20en%20realizar%20un%20pedido" target="_blank" class="whatsapp-button">
+                ¡Haz tu pedido por WhatsApp!
+            </a>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>
+            <a href="https://maps.app.goo.gl/xdnKGKxp98Wyjhb69" target="_blank">
+                Dirección: Avenida Circunvalar Carrera 13 #8-94
+            </a>
+        </p>
+        <p>Teléfono: +57 324 5519976</p>
+        <h3>Horario de atención</h3>
+        <table class="horarios">
+            <thead>
+                <tr>
+                    <th>Día</th>
+                    <th>Horario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Martes, Miércoles y Domingo</td>
+                    <td>4:00 PM - 1:00 AM</td>
+                </tr>
+                <tr>
+                    <td>Jueves</td>
+                    <td>4:00 PM - 2:00 AM</td>
+                </tr>
+                <tr>
+                    <td>Viernes y Sábado</td>
+                    <td>4:00 PM - 4:00 AM</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <a href="https://facebook.com" target="_blank">Facebook</a> | 
+            <a href="https://www.instagram.com/bbttodopei/" target="_blank">Instagram</a>
+        </p>
+    </footer>
+
+</body>
+</html>
